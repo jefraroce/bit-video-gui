@@ -1,0 +1,14 @@
+<div class="container" align="center">
+	<form #crearPlan = "ngForm" (ngSubmit) = "onClickSubmit(crearPlan.value)" >
+		<input type = "text" name = "proyectoId" placeholder = "proyectoId" ngModel>
+		<br/>
+		<input type = "text" name = "descripcionPlan" placeholder = "descripcionPlan" ngModel>
+		<br/>
+		<input type = "text" name = "nombrePlan" placeholder = "nombrePlan" ngModel>
+		<br/>
+		<input type = "text" name = "valor" placeholder = "valor" ngModel>
+		<br/>
+		<input type = "submit" value = "Crear Plan">
+	</form>
+
+</div>   
