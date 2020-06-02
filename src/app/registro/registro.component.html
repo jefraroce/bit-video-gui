@@ -1,0 +1,22 @@
+<form id="formulario-registro" [formGroup]="registroForm" (ngSubmit)="onSubmit(registroForm.value)" enctype="multipart/form-data">
+
+  <label class="label" for="avatar">Avatar</label>
+  <input type="file" formControlName="avatar" id="avatar" name="avatar" />
+
+  <br/>
+
+  <label class="label" for="nombre">Nombre</label>
+  <input type="text" formControlName="nombre" id="nombre" name="nombre" />
+
+  <br/>
+
+  <label class="label" for="correoElectronico">Correo Electrónico</label>
+  <input type="email" formControlName="correoElectronico" id="correoElectronico" name="correoElectronico" />
+
+  <br/>
+
+  <label class="label" for="contrasena">Contraseña</label>
+  <input type="password" formControlName="contrasena" id="contrasena" name="contrasena" />
+
+  <button type="submit">Registrarse</button>
+</form>
