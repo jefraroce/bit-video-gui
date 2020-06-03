@@ -14,7 +14,7 @@
       <td><img [src]="usuario.avatar" alt="" /></td>
       <td>{{ usuario.nombre }}</td>
       <td>{{ usuario.correoElectronico }}</td>
-      <td></td>
+      <td><a [routerLink]="['/usuarios', usuario._id]">Ver Detalle</a></td>
     </tr>
   </tbody>
 </table>

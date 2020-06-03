@@ -16,15 +16,19 @@ export class UsuariosService {
   constructor(private http: HttpClient) { }
 
   traerUsuarios(parametros = {}) {
-    return this.http.get(`${environment.API_URL}/usuarios`, Object.assign({}, this.opciones, { params: parametros }));
+    return this.http.get(`${environment.API_URL}/usuario`, Object.assign({}, this.opciones, { params: parametros }));
+  }
+
+  traerUsuarioPorId(IdUsuario) {
+    return this.http.get(`${environment.API_URL}/usuario/${IdUsuario}`, this.opciones);
   }
 
   registrarUsuario(datos) {
-    return this.http.post(`${environment.API_URL}/usuarios`, datos);
+    return this.http.post(`${environment.API_URL}/usuario`, datos);
   }
 
   iniciarSesion(credenciales) {
-    this.http.post(`${environment.API_URL}/usuarios/inicio_de_sesion`, credenciales)
+    this.http.post(`${environment.API_URL}/usuario/inicio_de_sesion`, credenciales)
       .subscribe((token) => {
         this.guardarToken(token)
       }, (error) => {
