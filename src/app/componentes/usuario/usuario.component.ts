@@ -8,7 +8,7 @@ import { UsuariosService } from '../../servicios/usuarios.service';
   styleUrls: ['./usuario.component.scss']
 })
 export class UsuarioComponent implements OnInit {
-  usuario: {};
+  usuario: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -22,13 +22,13 @@ export class UsuarioComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  cargarInformacion(idUsuario) {
+  cargarInformacion(idUsuario: String) {
     this.usuariosService.traerUsuarioPorId(idUsuario)
       .subscribe((usuario) => {
         this.usuario = usuario;
       },
       (error) => {
-        console.error('Error ', error);
+        console.error('Error consultado usuario: ', error);
       });
   }
 

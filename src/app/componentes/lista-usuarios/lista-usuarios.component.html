@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let usuario of usuarios">
-      <td><img [src]="usuario.avatar" alt="" /></td>
+      <td><img [src]="usuario.avatar" alt="" class="img-thumbnail" /></td>
       <td>{{ usuario.nombre }}</td>
       <td>{{ usuario.correoElectronico }}</td>
       <td><a [routerLink]="['/usuarios', usuario._id]">Ver Detalle</a></td>
