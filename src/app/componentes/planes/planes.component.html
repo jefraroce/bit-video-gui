@@ -1,0 +1,6 @@
+<div class="container" align="center">
+
+    <table class="table table-borderless table-transparent rounded">
+        <ng2-smart-table [settings]="tableSettings" [source]="planes" (editConfirm)="editarPlan($event)" (deleteConfirm)="borrarPlan($event)" ></ng2-smart-table>
+    </table>
+</div>   
