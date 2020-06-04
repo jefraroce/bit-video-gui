@@ -21,4 +21,8 @@ export class ListaUsuariosComponent implements OnInit {
         });
   }
 
+  esValidoMostrar() {
+    return this.usuariosService.estaAutenticado()
+  }
+
 }

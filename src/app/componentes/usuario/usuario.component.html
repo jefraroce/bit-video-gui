@@ -6,3 +6,9 @@
     <a routerLink="/usuarios" class="btn btn-primary">Regresar</a>
   </div>
 </div>
+
+<iframe *ngIf="proyecto.enlace !== null" width="560" height="315" [src]="proyecto.enlace | safe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<div id="video">
+
+</div>

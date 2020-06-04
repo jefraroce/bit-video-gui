@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegistroComponent } from './registro/registro.component';
 import { ListaUsuariosComponent } from './componentes/lista-usuarios/lista-usuarios.component';
 import { UsuarioComponent } from './componentes/usuario/usuario.component';
+import { AutenticacionGuard } from './guardianes/autenticacion.guard';
+import { AdministradorGuard } from './guardianes/administrador.guard';
 
 
 const routes: Routes = [
@@ -12,6 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'usuarios',
+    canActivate: [AutenticacionGuard, AdministradorGuard],
     component: ListaUsuariosComponent
   },
   {

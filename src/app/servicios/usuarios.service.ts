@@ -40,4 +40,8 @@ export class UsuariosService {
     localStorage.setItem('usuario', token);
     this.opciones.headers.append('Authorization', `Bearer ${token}`);
   }
+
+  estaAutenticado() {
+    return localStorage.getItem('usuario') !== null
+  }
 }
