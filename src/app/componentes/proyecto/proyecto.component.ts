@@ -48,15 +48,6 @@ export class ProyectoComponent implements OnInit {
         console.error('Error consultado proyecto: ', error);
       });
   }
-  cargarPlanes(idProyecto: String) {
-    this.planesService.traerPlanesPorId(idProyecto)
-      .subscribe((planes) => {
-        this.planes = planes;
-      },
-      (error) => {
-        console.error('Error consultado planes: ', error);
-      });
-  }
   
 
 }

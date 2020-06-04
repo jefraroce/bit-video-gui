@@ -1,0 +1,11 @@
+
+:host {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.mi-contenedor {
+  flex: 1;
+  padding: 50px 15px;
+}
