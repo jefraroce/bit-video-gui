@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -13,6 +12,9 @@ import { CrearPlanComponent } from './componentes/crear-plan/crear-plan.componen
 import { InicioDeSesionComponent } from './componentes/inicio-de-sesion/inicio-de-sesion.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
+import { DonarComponent } from './componentes/donar/donar.component';
+import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracias-por-donar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CrearPlanComponent,
     InicioDeSesionComponent,
     RegistroComponent,
+    ProyectoComponent,
+    DonarComponent,
+    GraciasPorDonarComponent
   ],
   imports: [
     BrowserModule,
