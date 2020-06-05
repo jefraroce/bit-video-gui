@@ -8,8 +8,8 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./planes.component.scss']
 })
 export class PlanesComponent implements OnInit {
-
-	tableSettings = {
+  planes: [];
+  tableSettings = {
     columns: {
       proyectoId: {
         title: 'proyectoId'
@@ -24,10 +24,10 @@ export class PlanesComponent implements OnInit {
         title: 'valor'
       }
     },
-	
-	actions : {
-		add: false
-	},
+
+    actions: {
+      add: false
+    },
     delete: {
       confirmDelete: true
     },
@@ -36,31 +36,25 @@ export class PlanesComponent implements OnInit {
     }
   };
 
-  constructor(private activatedRoute: ActivatedRoute, private planesService: PlanesService) { 
-		this.activatedRoute.params.subscribe((params: Params) => {
-			this.cargarPlanes(params.id);
-		});
+  constructor(private activatedRoute: ActivatedRoute, private planesService: PlanesService) {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.cargarPlanes(params.id);
+    });
   }
 
-  ngOnInit(): void {
-	   
-  }
-  
-  planes: [];
+  ngOnInit(): void { }
 
-  
-  cargarPlanes(id) {
-    // this.planesService.traerPlanes()
-    //   .subscribe((planes: []) => {
-    //     this.planes = planes.filter( 
-		// 	plan => plan.proyectoId === id 
-		// );
-    //   });
+  cargarPlanes(proyectoId) {
+    this.planesService.traerPlanes({ proyectoId: proyectoId })
+      .subscribe((planes: []) => {
+        this.planes = planes;
+      },
+      (error) => {
+        console.error('Error cargando planes: ', error);
+      });
   }
-  
-  
 
-	editarPlan(event) {
+  editarPlan(event) {
     var planEditado = {
       "proyectoId": event.newData.proyectoId,
       "descripcionPlan": event.newData.descripcionPlan,
@@ -85,6 +79,5 @@ export class PlanesComponent implements OnInit {
           console.error('Error eliminando plan ', error);
         });
   }
-
 
 }

@@ -9,8 +9,8 @@ export class PlanesService {
 
   constructor(private http: HttpClient) { }
 
-  traerPlanes() {
-    return this.http.get(`${environment.API_URL}/plan`);
+  traerPlanes(parametros = {}) {
+    return this.http.get(`${environment.API_URL}/plan`, { params: parametros });
   }
 
   eliminarPlan(id) {
