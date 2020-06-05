@@ -9,19 +9,23 @@ export class PlanesService {
 
   constructor(private http: HttpClient) { }
 
+  filtrarPlanes(idproyecto) {
+    return this.http.get(`${environment.API_URL}/plan?_id=${idproyecto}`);
+  }
+
   traerPlanes(parametros = {}) {
-    return this.http.get(`${environment.API_URL}/plan`, { params: parametros });
+    return this.http.get(`${environment.API_URL}/plan`,{params: parametros});
   }
 
   eliminarPlan(id) {
-    return this.http.delete(`${environment.API_URL}/plan/${id}`);
+    return this.http.delete(`${environment.API_URL}/planes/${id}`);
   }
   
   editarPlan(id, plan) {
-    return this.http.put(`${environment.API_URL}/plan/${id}`, plan);
+    return this.http.put(`${environment.API_URL}/planes/${id}`, plan);
   }
   
   crearPlan(plan) {
-    return this.http.post(`${environment.API_URL}/plan`, plan);
+    return this.http.post(`${environment.API_URL}/planes`, plan);
   }
 }

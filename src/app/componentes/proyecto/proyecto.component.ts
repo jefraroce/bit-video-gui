@@ -31,6 +31,7 @@ export class ProyectoComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.cargarInformacion(params.id);
+      this.cargarPlanes(params.id);
     });
   }
 
@@ -41,12 +42,20 @@ export class ProyectoComponent implements OnInit {
     this.proyectoService.traerProyectoPorId(idProyecto)
       .subscribe((proyecto) => {
         this.proyecto = proyecto;
-        this.linkVideo = this.proyecto.enlace
-        document.querySelector("#video").innerHTML = `<iframe width="100%" height="315" src="${this.linkVideo}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
       },
       (error) => {
         console.error('Error consultado proyecto: ', error);
       });
+  }
+  cargarPlanes(idProyecto: String) {
+    this.planesService.traerPlanes({proyectoId: idProyecto})
+      .subscribe((planes: []) => {
+        this.planes = planes;
+        console.log(planes)
+      },
+      (error) => {
+        console.error('Error consultado planes: ', error);
+      }); 
   }
   
 
