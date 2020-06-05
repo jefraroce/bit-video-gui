@@ -17,7 +17,7 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'planes',
+        path: 'planes/:id',
         canActivate: [AutenticacionGuard],
         component: PlanesComponent,
       },
