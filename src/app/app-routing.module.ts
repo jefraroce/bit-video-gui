@@ -20,6 +20,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'inicio',
+        pathMatch: 'full'
+      },
+      {
+        path: 'inicio',
         component: InicioComponent,
       },
       {
@@ -62,8 +67,12 @@ const routes: Routes = [
         path:'gracias-x-donar',
         component: GraciasPorDonarComponent
       }
-    ],
+    ]
   },
+  {
+    path: '**',
+    loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
+  }
 ];
 
 @NgModule({
