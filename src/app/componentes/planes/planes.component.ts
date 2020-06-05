@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanesService } from '../../servicios/planes.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-planes',
@@ -35,20 +36,29 @@ export class PlanesComponent implements OnInit {
     }
   };
 
-  constructor(private planesService: PlanesService) { }
+  constructor(private activatedRoute: ActivatedRoute, private planesService: PlanesService) { 
+		this.activatedRoute.params.subscribe((params: Params) => {
+			this.cargarPlanes(params.id);
+		});
+  }
 
   ngOnInit(): void {
-	   this.cargarPlanes();
+	   
   }
   
   planes: [];
+
   
-  cargarPlanes() {
+  cargarPlanes(id) {
     this.planesService.traerPlanes()
       .subscribe((planes: []) => {
-        this.planes = planes;
+        this.planes = planes.filter( 
+			plan => plan.proyectoId === id 
+		);
       });
   }
+  
+  
 
 	editarPlan(event) {
     var planEditado = {
@@ -59,7 +69,7 @@ export class PlanesComponent implements OnInit {
     };
     this.planesService.editarPlan(event.newData._id, planEditado)
       .subscribe((resultado) => {
-        this.cargarPlanes();
+        this.cargarPlanes(event.newData.proyectoId);
       },
         (error) => {
           console.error('Error editando plan ', error);
@@ -69,7 +79,7 @@ export class PlanesComponent implements OnInit {
   borrarPlan(event) {
     this.planesService.eliminarPlan(event.data._id)
       .subscribe((resultado) => {
-        this.cargarPlanes();
+        this.cargarPlanes(event.data._id);
       },
         (error) => {
           console.error('Error eliminando plan ', error);
