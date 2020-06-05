@@ -24,4 +24,10 @@ export class ProyectosService {
   crearProyecto(proyecto) {
     return this.http.post(`${environment.API_URL}/proyectos`, proyecto);
   }
+  guardarLocalStorage(proyecto) {
+    localStorage.setItem('proyecto', JSON.stringify(proyecto));
+  }
+  borrarLocalStorage() {
+    localStorage.setItem('proyecto', ' ');
+  }
 }

@@ -15,6 +15,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
 import { DonarComponent } from './componentes/donar/donar.component';
 import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracias-por-donar.component';
+import { UrlSeguraPipe } from './utilidades/url-segura.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracia
     RegistroComponent,
     ProyectoComponent,
     DonarComponent,
-    GraciasPorDonarComponent
+    GraciasPorDonarComponent,
+    UrlSeguraPipe
   ],
   imports: [
     BrowserModule,

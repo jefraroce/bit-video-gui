@@ -49,11 +49,11 @@ const routes: Routes = [
         component: ProyectoComponent
       },
       {
-        path:'donar',
+        path:'proyectos/:id/donar',
         component: DonarComponent
       },
       {
-        path:'gracias-x-donar',
+        path:'gracias-x-donar/:id',
         component: GraciasPorDonarComponent
       }
     ],

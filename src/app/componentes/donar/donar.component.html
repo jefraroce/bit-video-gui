@@ -1,45 +1,50 @@
 <div class="container">
-    <div class="p-3">
-        <h1>Nombre Proyecto</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat velit qui sint et cum, provident, nisi,
-            accusantium atque corporis odit perspiciatis architecto obcaecati laboriosam dolore itaque voluptas
-            labore. Quae, deserunt!</p>
+  <div class="titulo text-center">
+  <h2>
+    Tu aporte será de Gran ayuda a este proyecto.
+  </h2>
+</div>
+  <div class="my-5 d-flex">
+    <div class="col-4">
+      <img class="imagenProyecto" [src]="proyecto.portada" alt="">
     </div>
-    <form>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Nombre</label>
-            <input type="email" class="form-control" id="inputEmail4">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">Apellido</label>
-            <input type="password" class="form-control" id="inputPassword4">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputAddress">Correo</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputCity">Ciudad</label>
-            <input type="text" class="form-control" id="inputCity">
-          </div>
-          <div class="Telefono col-md-6">
-            <label for="inputCity">Teléfono</label>
-            <input type="text" class="form-control" id="inputCity">
-          </div>
-          
-        </div>
-        <div class="form-group">
-            <label for="inputState">Planes</label>
-            <select id="inputState" class="form-control">
-              <option selected>Planes 1</option>
-              <option selected>Planes 2</option>
-              <option selected>Planes 3</option>
-              <option selected>Planes 4</option>
-            </select>
-          </div>
-        <button type="submit" class="btn btn-primary">Donar</button>
-      </form>
+    <div class=" d-flex align-items-center">
+      <div class="descripcion">
+      <h3>{{ proyecto.nombreProyecto }}</h3>
+      <p>{{ proyecto.descripcionProyecto }}</p>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="formularioRegistroDonacion" (ngSubmit)="crearDonacion(formularioRegistroDonacion.value)">
+    <div class="d-block">
+      <label>ProyectoId</label>
+      <input formControlName="proyectoId" type="text" class="form-control" id="inputProyecto" [value]="proyecto._id">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="inputProyecto">Planes</label>
+        <select formControlName="planId" class="form-control">
+          <option *ngFor="let plan of planes">{{ plan.nombrePlan }} -- {{ plan.valor }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Nombre</label>
+        <input formControlName="nombreDonante" type="email" class="form-control" id="inputEmail4">
+      </div>
+      <div class="Telefono col-md-6">
+        <label for="inputCity">Teléfono</label>
+        <input formControlName="telefonoDonante" type="number" class="form-control" id="inputCity">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Correo</label>
+      <input formControlName="correoDonante" type="email" class="form-control" id="inputAddress"
+        placeholder="1234 Main St">
+    </div>
+    <div class="d-flex justify-content-center">
+    <button type="submit" class="boton btn btn-primary">Donar</button>
+    </div>
+  </form>
 </div>

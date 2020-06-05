@@ -1,34 +1,27 @@
 <div class="container">
     <div class="proyecto d-flex">
         <div id="video" class="col-6">
-            
+            <iframe width="100%" height="315" [src]="proyecto.enlace | urlSegura" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         </div>
         <div class="col-6 p-3">
             <h1>{{ proyecto.nombreProyecto }}</h1>
             <p>{{ proyecto.descripcionProyecto }}</p>
-            <p>{{ proyecto.enlace }}</p>
-            <p></p>
-            <button>DONAR</button>
         </div>
     </div>
-    <div class="planes col-12 my-2">
-        <div class="d-flex">
-            <div class="plan col-3 p-2">
-                <h5>Plan 1</h5>
-                <p>Descrpcion de los planes</p>
-            </div>
-            <div class="plan col-3 p-2">
-                <h5>Plan 2</h5>
-                <p>Descrpcion de los planes</p>
-            </div>
-            <div class="plan col-3 p-2">
-                <h5>Plan 3</h5>
-                <p>Descrpcion de los planes</p>
-            </div>
-            <div class="plan col-3 p-2">
-                <h5>Plan 4</h5>
-                <p>Descrpcion de los planes</p>
+    <div class="planes col-12 my-4">
+        <div class="d-flex justify-content-between">
+            <div class="plan p-2" *ngFor="let plan of planes">
+                <div class="infoProyecto">
+                    <h5>{{ plan.nombrePlan }}</h5>
+                    <p>{{ plan.descripcionPlan }}</p>
+                    <h5>{{ plan.valor }}</h5>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <a class="boton btn btn-primary" [routerLink]="['/proyectos/', proyecto._id, 'donar']">DONAR</a>
     </div>
 </div>

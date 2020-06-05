@@ -9,8 +9,12 @@ export class PlanesService {
 
   constructor(private http: HttpClient) { }
 
-  traerPlanes() {
-    return this.http.get(`${environment.API_URL}/planes`);
+  filtrarPlanes(idproyecto) {
+    return this.http.get(`${environment.API_URL}/plan?_id=${idproyecto}`);
+  }
+
+  traerPlanes(parametros = {}) {
+    return this.http.get(`${environment.API_URL}/plan`,{params: parametros});
   }
 
   eliminarPlan(id) {
