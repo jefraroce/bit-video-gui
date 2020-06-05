@@ -29,7 +29,6 @@ const routes: Routes = [
       },
       {
         path: 'planes/:id',
-        canActivate: [AutenticacionGuard],
         component: PlanesComponent,
       },
       {
@@ -39,7 +38,6 @@ const routes: Routes = [
       },
       {
         path: 'proyectos',
-        canActivate: [AutenticacionGuard],
         component: ProyectosComponent,
       },
       {
