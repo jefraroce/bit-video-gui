@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+$theme-colors: (
+  "primary": #528078
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+.bg-primary a.btn.btn-link {
+  color: white;
+  text-decoration: none;
+}
+
+.bg-primary a.btn.btn-link:hover {
+  color: lightgray;
+}
+
+.bg-primary a.btn.btn-link.active {
+  border-bottom: 3px solid lightgreen;
+}

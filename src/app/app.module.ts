@@ -15,6 +15,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
 import { DonarComponent } from './componentes/donar/donar.component';
 import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracias-por-donar.component';
+import { CompartidoModule } from './compartido/compartido.module';
+import { InicioComponent } from './componentes/inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracia
     RegistroComponent,
     ProyectoComponent,
     DonarComponent,
-    GraciasPorDonarComponent
+    GraciasPorDonarComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracia
     ReactiveFormsModule,
     HttpClientModule,
     Ng2SmartTableModule,
+    CompartidoModule
   ],
   providers: [],
   bootstrap: [AppComponent],

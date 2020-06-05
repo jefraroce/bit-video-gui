@@ -50,12 +50,12 @@ export class PlanesComponent implements OnInit {
 
   
   cargarPlanes(id) {
-    this.planesService.traerPlanes()
-      .subscribe((planes: []) => {
-        this.planes = planes.filter( 
-			plan => plan.proyectoId === id 
-		);
-      });
+    // this.planesService.traerPlanes()
+    //   .subscribe((planes: []) => {
+    //     this.planes = planes.filter( 
+		// 	plan => plan.proyectoId === id 
+		// );
+    //   });
   }
   
   

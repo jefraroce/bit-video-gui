@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/">
+      <img src="assets/images/logo.svg" alt="" class="logo mr-1" />
+      BIT Video
+    </a>
+    <button *ngIf="!usuario" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a *ngIf="usuario" (click)="cerrarSesion()" title="Cerrar Sesión">
+      <span class="nombre-usuario">{{ usuario.nombre }}</span>
+      <img [src]="usuario.avatar" class="avatar rounded-circle img-thumbnail" alt="" />
+    </a>
+    <div *ngIf="!usuario" class="collapse navbar-collapse" id="navbarHeader">
+      <div class="d-flex justify-content-between w-100">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="btn btn-link mr-1" routerLink="/" routerLinkActive="active">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-link" routerLink="/proyectos" routerLinkActive="active">Proyectos</a>
+          </li>
+          <li class="nav-item active">
+            <a class="btn btn-link mr-1" routerLink="/donaciones" routerLinkActive="active">Donaciones</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-link" routerLink="/agradecimientos" routerLinkActive="active">Agradecimientos</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="btn btn-link mr-1" routerLink="/usuario/inicio-de-sesion" routerLinkActive="active">Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-link" routerLink="/usuario/registro" routerLinkActive="active">Registrarse</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

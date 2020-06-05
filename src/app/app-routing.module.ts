@@ -11,11 +11,17 @@ import { AutenticacionGuard } from './guardian/autenticacion.guard';
 import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
 import { DonarComponent } from './componentes/donar/donar.component';
 import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracias-por-donar.component';
+import { InicioComponent } from './componentes/inicio/inicio.component';
+
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
     children: [
+      {
+        path: '',
+        component: InicioComponent,
+      },
       {
         path: 'planes/:id',
         canActivate: [AutenticacionGuard],
