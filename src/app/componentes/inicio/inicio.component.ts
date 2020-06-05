@@ -9,6 +9,7 @@ const swal = require('sweetalert');
 })
 export class InicioComponent implements OnInit {
   proyectos: Array<any>;
+  estaCargando = false;
 
   constructor(private proyectosService: ProyectosService) { }
 
@@ -17,14 +18,16 @@ export class InicioComponent implements OnInit {
   }
 
   cargarProyectos() {
+    this.estaCargando = true;
     this.proyectosService.traerProyectos()
       .subscribe((proyectosCargados: Array<any>) => {
         this.proyectos = proyectosCargados;
-        console.log(this.proyectos)
+        this.estaCargando = false;
       },
       (error) => {
-        swal('Error', error, 'error');
         console.error('Error cargando los proyectos: ', error);
+        swal('Error', error, 'error');
+        this.estaCargando = false;
       })
   }
 
