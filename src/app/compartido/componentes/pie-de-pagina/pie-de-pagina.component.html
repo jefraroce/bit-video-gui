@@ -1,14 +1,21 @@
 <div class="bg-primary text-white">
-  <div class="container d-flex justify-content-between align-items-center py-5">
-    <div>
-      <a *ngIf="usuario" class="btn btn-link mb-1 mr-0 mb-md-0 mr-md-1" routerLink="/canciones" routerLinkActive="active">Mis Canciones</a>
-      <a *ngIf="usuario" class="btn btn-link mb-1 mr-0 mb-md-0 mr-md-1" routerLink="/reproductor" routerLinkActive="active">
-        <span class="material-icons mr-1">radio</span><span>Reproductor</span>
-      </a>
-      <a class="btn btn-link mb-1 mb-md-0" routerLink="/contacto" routerLinkActive="active">Contactanos</a>
+  <div class="container">
+    <div class="row py-3">
+      <div class="col-12 col-md-4 d-flex flex-column">
+        <a class="btn btn-link mb-1 text-left" routerLink="/not-found" routerLinkActive="active">Quienes Nosotros</a>
+        <a class="btn btn-link mb-1 text-left" routerLink="/not-found" routerLinkActive="active">Nuestros Proyectos</a>
+        <a class="btn btn-link mb-1 text-left" routerLink="/not-found" routerLinkActive="active">Sedes</a>
+      </div>
+      <div class="col-12 col-md-4 d-flex flex-column">
+        <a class="btn btn-link mb-1 text-left" routerLink="/not-found" routerLinkActive="active">Trabajos</a>
+        <a class="btn btn-link mb-1 text-left" routerLink="/not-found" routerLinkActive="active">Emprendimientos</a>
+        <a class="btn btn-link mb-1 text-left" routerLink="/not-found" routerLinkActive="active">Destacado</a>
+      </div>
+      <div class="col-12 col-md-4 d-flex flex-column">
+        <a class="btn btn-link mb-1 text-left" routerLink="/not-found" routerLinkActive="active">Boletín de Noticias</a>
+        <a class="btn btn-link mb-1 text-left" routerLink="/not-found" routerLinkActive="active">Telefonos</a>
+        <a class="btn btn-link mb-1 text-left" routerLink="/contacto" routerLinkActive="active">Contactanos</a>
+      </div>
     </div>
-    <a class="navbar-brand d-flex align-items-center my-2" routerLink="/">
-      <img src="assets/images/logo.svg" alt="" class="logo mr-1" />
-    </a>
   </div>
 </div>
