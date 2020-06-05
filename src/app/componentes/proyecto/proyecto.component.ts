@@ -48,7 +48,7 @@ export class ProyectoComponent implements OnInit {
       });
   }
   cargarPlanes(idProyecto: String) {
-    this.planesService.traerPlanes({_id: idProyecto})
+    this.planesService.traerPlanes({proyectoId: idProyecto})
       .subscribe((planes: []) => {
         this.planes = planes;
         console.log(planes)

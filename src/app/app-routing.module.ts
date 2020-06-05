@@ -11,14 +11,24 @@ import { AutenticacionGuard } from './guardian/autenticacion.guard';
 import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
 import { DonarComponent } from './componentes/donar/donar.component';
 import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracias-por-donar.component';
+import { InicioComponent } from './componentes/inicio/inicio.component';
+
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
     children: [
       {
-        path: 'planes',
-        canActivate: [AutenticacionGuard],
+        path: '',
+        redirectTo: 'inicio',
+        pathMatch: 'full'
+      },
+      {
+        path: 'inicio',
+        component: InicioComponent,
+      },
+      {
+        path: 'planes/:id',
         component: PlanesComponent,
       },
       {
@@ -28,7 +38,6 @@ const routes: Routes = [
       },
       {
         path: 'proyectos',
-        canActivate: [AutenticacionGuard],
         component: ProyectosComponent,
       },
       {
@@ -55,9 +64,13 @@ const routes: Routes = [
       {
         path:'gracias-x-donar/:id',
         component: GraciasPorDonarComponent
+      },
+      {
+        path: '**',
+        loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
       }
-    ],
-  },
+    ]
+  }
 ];
 
 @NgModule({

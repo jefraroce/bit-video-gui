@@ -15,6 +15,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
 import { DonarComponent } from './componentes/donar/donar.component';
 import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracias-por-donar.component';
+import { CompartidoModule } from './compartido/compartido.module';
+import { InicioComponent } from './componentes/inicio/inicio.component';
 import { UrlSeguraPipe } from './utilidades/url-segura.pipe';
 
 @NgModule({
@@ -30,7 +32,8 @@ import { UrlSeguraPipe } from './utilidades/url-segura.pipe';
     ProyectoComponent,
     DonarComponent,
     GraciasPorDonarComponent,
-    UrlSeguraPipe
+    UrlSeguraPipe,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { UrlSeguraPipe } from './utilidades/url-segura.pipe';
     ReactiveFormsModule,
     HttpClientModule,
     Ng2SmartTableModule,
+    CompartidoModule
   ],
   providers: [],
   bootstrap: [AppComponent],

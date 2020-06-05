@@ -28,7 +28,7 @@ export class AutenticacionGuard implements CanActivate {
     const estaAutenticado =
       this.usuariosService.consultarLocalStorage() !== null;
     if (!estaAutenticado) {
-      this.router.navigate(['/inicio-de-sesion']);
+      this.router.navigate(['/usuario/inicio-de-sesion']);
     }
     return estaAutenticado;
   }
