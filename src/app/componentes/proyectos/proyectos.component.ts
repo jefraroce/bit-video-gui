@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectosService } from '../../servicios/proyectos.service';
+import { ButtonRenderComponent } from './button.render.component';
+import { ButtonEditComponent} from './button.edit.component';
 
 @Component({
   selector: 'app-proyectos',
@@ -10,9 +12,6 @@ export class ProyectosComponent implements OnInit {
 	
 	tableSettings = {
     columns: {
-      proyectoId: {
-        title: 'proyectoId'
-      },
       nombreProyecto: {
         title: 'nombreProyecto'
       },
@@ -23,15 +22,18 @@ export class ProyectosComponent implements OnInit {
         title: 'portada',
 		type: 'html',
 		valuePrepareFunction: (value) => { 
-		return `<img src="`+value+`" style="width:50px height:50px" />`
+		return `<img src="`+value+`" class="img-thumbnail" />`
 		}
       },
-      enlace: {
-        title: 'enlace',
-		type: 'html',
-		valuePrepareFunction: (value) => { 
-		return `<iframe width="420" height="345" src="`+value+`"></iframe>`
-		}
+	  proyectoId: {
+        title: 'Detalles',
+        type: 'custom',
+        renderComponent: ButtonRenderComponent,
+        defaultValue: '',
+        editor: {
+          type: 'custom',
+          component: ButtonEditComponent,
+        },
       }
     },
 	
