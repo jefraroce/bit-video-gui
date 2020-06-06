@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProyectosService } from '../../servicios/proyectos.service';
+import { ProyectosService } from '../../../servicios/proyectos.service';
 
 @Component({
   selector: 'app-crear-proyecto',

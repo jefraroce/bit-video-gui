@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PlanesService } from '../../servicios/planes.service';
+import { PlanesService } from '../../../servicios/planes.service';
 
 @Component({
   selector: 'app-crear-plan',

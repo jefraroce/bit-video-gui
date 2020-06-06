@@ -14,17 +14,15 @@ export class CabeceraComponent implements OnInit {
     private usuariosService: UsuariosService,
     private router: Router
     ) {
-    // this.usuariosService.autenticacion$.subscribe((usuarioAutenticado) => {
-    //   this.usuario = usuarioAutenticado;
-    // });
+    this.usuariosService.autenticacion$.subscribe((usuarioAutenticado) => {
+      this.usuario = usuarioAutenticado;
+    });
   }
 
-  ngOnInit(): void {
-    this.usuariosService.consultarLocalStorage();
-  }
+  ngOnInit(): void { }
 
   cerrarSesion() {
     this.usuariosService.borrarLocalStorage();
-    this.router.navigate(['/inicio-de-sesion']);
+    this.router.navigate(['/usuario/inicio-de-sesion']);
   }
 }

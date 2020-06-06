@@ -3,28 +3,18 @@
   width: auto;
 }
 
-// .bg-dark-gradient {
-//   background-color: transparent;
-//   background: linear-gradient(0deg,  transparent, rgba(0,0,0,0.6) 100%);
-// }
+.avatar {
+  height: 40px;
+  width: 40px;
+}
 
-// #navbarHeader.navbar-collapse {
-//   flex-grow: inherit;
-// }
+.nombre-usuario {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 0.4rem;
+}
 
-
-// .avatar {
-//   height: 48px;
-//   width: 48px;
-// }
-
-// .nombre-usuario {
-//   font-size: 1.5rem;
-//   font-weight: bold;
-//   margin-right: 0.4rem;
-// }
-
-// .nombre-usuario:hover {
-//   color: lightgray;
-//   cursor: pointer;
-// }
+.nombre-usuario:hover {
+  color: lightgray;
+  cursor: pointer;
+}

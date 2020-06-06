@@ -24,7 +24,8 @@
       <div class="form-group col-md-12">
         <label for="inputProyecto">Planes</label>
         <select formControlName="planId" class="form-control">
-          <option *ngFor="let plan of planes">{{ plan.nombrePlan }} -- {{ plan.valor }}</option>
+          <option value=""></option>
+          <option *ngFor="let plan of planes" [value]="plan._id">{{ plan.nombrePlan }} -- {{ plan.valor | currency }}</option>
         </select>
       </div>
     </div>

@@ -5,10 +5,6 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
-import { PlanesComponent } from './componentes/planes/planes.component';
-import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
-import { CrearProyectoComponent } from './componentes/crear-proyecto/crear-proyecto.component';
-import { CrearPlanComponent } from './componentes/crear-plan/crear-plan.component';
 import { InicioDeSesionComponent } from './componentes/inicio-de-sesion/inicio-de-sesion.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -23,10 +19,6 @@ import { UrlSeguraPipe } from './utilidades/url-segura.pipe';
   declarations: [
     AppComponent,
     LayoutComponent,
-    PlanesComponent,
-    ProyectosComponent,
-    CrearProyectoComponent,
-    CrearPlanComponent,
     InicioDeSesionComponent,
     RegistroComponent,
     ProyectoComponent,
