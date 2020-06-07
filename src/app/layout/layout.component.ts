@@ -12,15 +12,15 @@ export class LayoutComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit(): void {
-    this.mostrarPublicidad()
-    this.animacion = setInterval(() => this.mostrarPublicidad(), 40000);
+    this.animacion = setTimeout(() => this.mostrarPublicidad(), 10000);
+    this.animacion = setInterval(() => this.mostrarPublicidad(), 60000);
   }
 
   ngOnDestroy(): void {
     clearInterval(this.animacion);
   }
 
-  createToast(titulo: string, mensaje: string, tipo = 'info', delay = 20000) {
+  createToast(titulo: string, mensaje: string, tipo = 'info', delay = 12000) {
     const toastContainer = document.getElementById('toast-list')
     if (toastContainer) {
       const icon = '<img src="assets/images/logo.svg" style="height: 24px; width: auto;" />';
