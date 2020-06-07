@@ -20,7 +20,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
     clearInterval(this.animacion);
   }
 
-  createToast(titulo: string, mensaje: string, tipo = 'info', delay = 12000) {
+  createToast(titulo: string, mensaje: string, delay = 12000) {
     const toastContainer = document.getElementById('toast-list')
     if (toastContainer) {
       const icon = '<img src="assets/images/logo.svg" style="height: 24px; width: auto;" />';
