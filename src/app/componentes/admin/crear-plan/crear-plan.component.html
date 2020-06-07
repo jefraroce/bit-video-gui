@@ -1,14 +1,13 @@
-<div class="container" align="center">
+<div class="mx-auto text-center d-flex flex-column justify-content-center formulario" align="center">
 	<form #crearPlan = "ngForm" (ngSubmit) = "onClickSubmit(crearPlan.value)" >
-		<input type = "text" name = "proyectoId" placeholder = "proyectoId" ngModel>
+		
+		<input class="form-control" type = "text" name = "descripcionPlan" placeholder = "Descripcion" ngModel>
 		<br/>
-		<input type = "text" name = "descripcionPlan" placeholder = "descripcionPlan" ngModel>
+		<input class="form-control" type = "text" name = "nombrePlan" placeholder = "Nombre" ngModel>
 		<br/>
-		<input type = "text" name = "nombrePlan" placeholder = "nombrePlan" ngModel>
+		<input class="form-control" type = "text" name = "valor" placeholder = "Valor" ngModel>
 		<br/>
-		<input type = "text" name = "valor" placeholder = "valor" ngModel>
-		<br/>
-		<input type = "submit" value = "Crear Plan">
+		<input class="btn btn-primary" type = "submit" value = "Crear Plan">
 	</form>
 
 </div>   

@@ -1,5 +1,7 @@
 <div class="container" align="center">
 
+	<button (click)="mostrarCrearPlan()" class="btn btn-primary" >Crear Plan Nuevo</button>
+
     <table class="table table-borderless table-transparent rounded">
         <ng2-smart-table [settings]="tableSettings" [source]="planes" (editConfirm)="editarPlan($event)" (deleteConfirm)="borrarPlan($event)" ></ng2-smart-table>
     </table>

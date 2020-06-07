@@ -1,15 +1,13 @@
-<div class="container" align="center">
-	<form #crearProyecto = "ngForm" (ngSubmit) = "onClickSubmit(crearProyecto.value)" >
-		<input type = "text" name = "proyectoId" placeholder = "proyectoId" ngModel>
+<div class="mx-auto text-center d-flex flex-column justify-content-center formulario" align="center">
+	<form #crearProyecto = "ngForm" (ngSubmit) = "onClickSubmit(crearProyecto.value)">
+		<input class="form-control" type = "text" name = "nombreProyecto" placeholder = "Nombre" ngModel>
 		<br/>
-		<input type = "text" name = "nombreProyecto" placeholder = "nombreProyecto" ngModel>
+		<input class="form-control" type = "text" name = "descripcionProyecto" placeholder = "Descripcion" ngModel>
 		<br/>
-		<input type = "text" name = "descripcionProyecto" placeholder = "descripcionProyecto" ngModel>
+		<input class="form-control" type = "text" name = "portada" placeholder = "Portada URL" ngModel>
 		<br/>
-		<input type = "text" name = "portada" placeholder = "portada" ngModel>
+		<input class="form-control" type = "text" name = "enlace" placeholder = "Enlace URL" ngModel>
 		<br/>
-		<input type = "text" name = "enlace" placeholder = "enlace" ngModel>
-		<br/>
-		<input type = "submit" value = "Crear Proyecto">
+		<input class="btn btn-primary" type = "submit" value = "Crear Proyecto">
 	</form>
 </div>   

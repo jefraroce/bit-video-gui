@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanesService } from '../../../servicios/planes.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-crear-plan',
@@ -8,7 +9,7 @@ import { PlanesService } from '../../../servicios/planes.service';
 })
 export class CrearPlanComponent implements OnInit {
 
-  constructor(private planesService: PlanesService) { }
+  constructor(private planesService: PlanesService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -16,19 +17,26 @@ export class CrearPlanComponent implements OnInit {
     
   onClickSubmit(data) {
 	  
-	  var planNuevo = {
-      "proyectoId": data.proyectoId,
-      "descripcionPlan": data.descripcionPlan,
-      "nombrePlan": data.nombrePlan,
-      "valor": data.valor,
-    };
-    this.planesService.crearPlan(planNuevo)
+	this.activatedRoute.params.subscribe((params: Params) => {
+			
+		var planNuevo = {
+			"proyectoId": params.id,
+			"descripcionPlan": data.descripcionPlan,
+			"nombrePlan": data.nombrePlan,
+			"valor": data.valor,
+		};
+    
+	this.planesService.crearPlan(planNuevo)
       .subscribe((resultado) => {
 
       },
         (error) => {
           console.error('Error creando plan ', error);
         });
+			
+	  });
+	  
+	  
    }
 
 }
