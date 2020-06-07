@@ -13,6 +13,10 @@ export class PlanesService {
     return this.http.get(`${environment.API_URL}/plan?_id=${idproyecto}`);
   }
 
+  traerPlanPorId(IdPlan) {
+    return this.http.get(`${environment.API_URL}/plan/${IdPlan}`);
+  }
+
   traerPlanes(parametros = {}) {
     return this.http.get(`${environment.API_URL}/plan`,{params: parametros});
   }

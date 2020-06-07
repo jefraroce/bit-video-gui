@@ -5,12 +5,18 @@
         </div>
         <div class="col-6 d-flex align-items-center">
             <div class="descripcion">
-            <h3>Muchas Gracias!</h3>
-            <p>{{ donacion.nombreDonante }}, De parte del equipo de {{ donacion.nombreDonante }} te queremos agredecer
-                por hacer esta Donación</p>
-            <p>Ahora gracias a tu donación estamos más cerca de lograr nuestro objetivo.</p>
-            <h3>¡Gracias Totales!</h3>
-            <p>{{ proyecto.nombreProyecto }}</p>
+                <h3>Muchas Gracias!</h3>
+                <p><strong>{{ donacion.nombreDonante }}</strong>, De parte del equipo de
+                    <strong>{{ proyecto.nombreProyecto }}</strong> te queremos agredecer
+                    por hacer esta Donación</p>
+
+                <table class="table">
+                            <td><img class="imagenProyecto" [src]="proyecto.portada" width="200"></td>
+                            <td><strong>{{ proyecto.nombreProyecto }}</strong><br> {{ plan.nombrePlan }}</td>
+                            <td>{{ plan.valor | currency}}</td>
+                </table>
+                <p>Ahora gracias a tu donación estamos más cerca de lograr nuestro objetivo.</p>
+                <p></p>
             </div>
         </div>
     </div>
