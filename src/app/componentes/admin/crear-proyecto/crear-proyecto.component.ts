@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectosService } from '../../../servicios/proyectos.service';
+import { UsuariosService } from '../../../servicios/usuarios.service';
 
 @Component({
   selector: 'app-crear-proyecto',
@@ -8,7 +9,7 @@ import { ProyectosService } from '../../../servicios/proyectos.service';
 })
 export class CrearProyectoComponent implements OnInit {
 
-  constructor(private proyectosService: ProyectosService) { }
+  constructor(private proyectosService: ProyectosService, private usuariosService: UsuariosService) { }
 
   ngOnInit(): void {
   }
@@ -17,7 +18,7 @@ export class CrearProyectoComponent implements OnInit {
   onClickSubmit(data) {
 	  
 	  var proyectoNuevo = {
-      "proyectoId": data.proyectoId,
+      "usuarioId": this.usuariosService.informacionUsuario().id,
       "nombreProyecto": data.nombreProyecto,
       "descripcionProyecto": data.descripcionProyecto,
       "portada": data.portada,

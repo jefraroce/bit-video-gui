@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectosService } from '../../../servicios/proyectos.service';
+import { UsuariosService } from '../../../servicios/usuarios.service';
 import { ButtonRenderComponent } from './button.render.component';
 import { ButtonEditComponent } from './button.edit.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-proyectos',
@@ -13,19 +15,19 @@ export class ProyectosComponent implements OnInit {
   tableSettings = {
     columns: {
       nombreProyecto: {
-        title: 'nombreProyecto'
+        title: 'Nombre'
       },
       descripcionProyecto: {
-        title: 'descripcionProyecto'
+        title: 'Descripcion'
       },
       portada: {
-        title: 'portada',
+        title: 'Portada',
         type: 'html',
         valuePrepareFunction: (value) => {
           return `<img src="${value}" class="img-thumbnail" />`;
         }
       },
-      proyectoId: {
+      _id: {
         title: 'Detalles',
         type: 'custom',
         renderComponent: ButtonRenderComponent,
@@ -48,7 +50,7 @@ export class ProyectosComponent implements OnInit {
     }
   };
 
-  constructor(private proyectosService: ProyectosService) { }
+  constructor(private proyectosService: ProyectosService, private usuariosService: UsuariosService,private router: Router) { }
 
   ngOnInit(): void {
     this.cargarProyectos();
@@ -57,7 +59,7 @@ export class ProyectosComponent implements OnInit {
   proyectos: [];
 
   cargarProyectos() {
-    this.proyectosService.traerProyectos()
+    this.proyectosService.traerProyectos( { "usuarioId": this.usuariosService.informacionUsuario().id }  )
       .subscribe((proyectos: []) => {
         this.proyectos = proyectos;
       });
@@ -65,6 +67,7 @@ export class ProyectosComponent implements OnInit {
 
   editarProyecto(event) {
     var proyectoEditado = {
+	  "usuarioId": this.usuariosService.informacionUsuario().id,
       "proyectoId": event.newData.proyectoId,
       "nombreProyecto": event.newData.nombreProyecto,
       "descripcionProyecto": event.newData.descripcionProyecto,
@@ -90,6 +93,8 @@ export class ProyectosComponent implements OnInit {
         });
   }
 
-
+  mostrarCrearProyecto() {
+    this.router.navigate(['/admin/proyectos/crear']);
+  }
 
 }

@@ -12,7 +12,7 @@ const routes: Routes = [
     component: PlanesComponent,
   },
   {
-    path: 'planes/crear',
+    path: 'planes/crear/:id',
     component: CrearPlanComponent,
   },
   {
