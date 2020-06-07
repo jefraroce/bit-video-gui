@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectosService } from 'src/app/servicios/proyectos.service';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 const swal = require('sweetalert');
 
 @Component({
@@ -8,10 +9,18 @@ const swal = require('sweetalert');
   styleUrls: ['./inicio.component.scss']
 })
 export class InicioComponent implements OnInit {
+  usuario = null;
   proyectos: Array<any>;
   estaCargando = false;
 
-  constructor(private proyectosService: ProyectosService) { }
+  constructor(
+    private proyectosService: ProyectosService,
+    private usuariosService: UsuariosService
+    ) {
+    this.usuariosService.autenticacion$.subscribe((usuarioAutenticado) => {
+      this.usuario = usuarioAutenticado;
+    });
+  }
 
   ngOnInit(): void {
     this.cargarProyectos();

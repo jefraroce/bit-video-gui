@@ -54,8 +54,8 @@
       </div>
     </div>
     <ng-template #listaDeProyectos>
-      <div *ngFor="let proyecto of proyectos" class="col-12 col-md-4 mb-3">
-        <div class="card mx-auto" style="width: 18rem;">
+      <div *ngFor="let proyecto of proyectos" class="col-12 col-sm-6 col-md-4 col-xl-3 mb-3">
+        <div class="card mx-auto" style="width: 100%; max-width: 18rem;">
           <figure class="portada">
             <img [src]="proyecto.portada" class="card-img-top" alt="poster">
           </figure>

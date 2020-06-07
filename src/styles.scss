@@ -3,6 +3,12 @@ $theme-colors: (
   "primary": #528078
 );
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Oswald', Helvetica, sans-serif;
 }

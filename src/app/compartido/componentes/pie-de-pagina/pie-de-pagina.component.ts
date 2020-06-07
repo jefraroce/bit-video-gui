@@ -13,11 +13,7 @@ export class PieDePaginaComponent implements OnInit {
   constructor(
     private usuariosService: UsuariosService,
     private router: Router
-    ) {
-    // this.usuariosService.autenticacion$.subscribe((usuarioAutenticado) => {
-    //   this.usuario = usuarioAutenticado;
-    // });
-  }
+    ) { }
 
   ngOnInit(): void {
     this.usuariosService.consultarLocalStorage();
@@ -26,5 +22,9 @@ export class PieDePaginaComponent implements OnInit {
   cerrarSesion() {
     this.usuariosService.borrarLocalStorage();
     this.router.navigate(['/inicio-de-sesion']);
+  }
+
+  volverArriba() {
+    window.scroll(0,0);
   }
 }
