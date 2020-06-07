@@ -26,7 +26,7 @@ export class ButtonRenderComponent implements OnInit {
   }
   
   mostrarPlanes() {
-    this.router.navigate(['/planes', this.value]);
+    this.router.navigate(['/admin/planes', this.value]);
   }
 
 
