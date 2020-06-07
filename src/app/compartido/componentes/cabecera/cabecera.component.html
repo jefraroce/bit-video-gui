@@ -9,7 +9,7 @@
     </button>
 
     <div *ngIf="usuario; else menuVisitante" class="collapse navbar-collapse" id="navbarHeader">
-      <div class="d-flex justify-content-between w-100">
+      <div class="d-flex flex-column flex-md-row justify-content-between w-100">
         <ul class="navbar-nav">
           <li class="nav-item active">
             <a class="btn btn-link" routerLink="/inicio" routerLinkActive="active">Inicio</a>
@@ -21,7 +21,7 @@
             <a class="btn btn-link" routerLink="/admin/proyectos" routerLinkActive="active">Mis Proyectos</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-link" routerLink="/admin/donaciones" routerLinkActive="active">Donaciones Recibidas</a>
+            <a class="btn btn-link" routerLink="/admin/donaciones" routerLinkActive="active">Mi Recaudación</a>
           </li>
           <li class="nav-item">
             <a class="btn btn-link" routerLink="/contacto" routerLinkActive="active">Contacto</a>
@@ -31,7 +31,7 @@
         <div class="d-flex align-items-center text-white">
           <img [src]="usuario.avatar" class="avatar rounded-circle mr-1" alt="" />
           <span class="nombre-usuario mr-1">{{ usuario.nombre }}</span>
-          <button class="btn btn-link" (click)="cerrarSesion()" title="Cerrar Sesión"><span class="material-icons">power_settings_new</span></button>
+          <button class="d-flex align-items-center btn btn-link" (click)="cerrarSesion()" title="Cerrar Sesión"><span class="material-icons">power_settings_new</span></button>
         </div>
       </div>
     </div>
