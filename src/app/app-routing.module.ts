@@ -8,6 +8,7 @@ import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
 import { DonarComponent } from './componentes/donar/donar.component';
 import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracias-por-donar.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
+import { ListaProyectosComponent } from './componentes/lista-proyectos/lista-proyectos.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path: 'usuario/registro',
         component: RegistroComponent,
+      },
+      {
+        path: 'proyectos',
+        component: ListaProyectosComponent
       },
       {
         path: 'proyectos/:id',

@@ -6,27 +6,30 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ProyectosService {
+  private PROYECTOS_URL = `${environment.API_URL}/proyecto`;
 
   constructor(private http: HttpClient) { }
 
-  traerProyectos() {
-    return this.http.get(`${environment.API_URL}/proyecto`);
+  traerProyectos(parametros = {}) {
+    return this.http.get(this.PROYECTOS_URL, { params: parametros });
   }
 
   eliminarProyecto(id) {
-    return this.http.delete(`${environment.API_URL}/proyecto/${id}`);
+    return this.http.delete(`${this.PROYECTOS_URL}/${id}`);
   }
-  
+
   editarProyecto(id, proyecto) {
-    return this.http.put(`${environment.API_URL}/proyecto/${id}`, proyecto);
+    return this.http.put(`${this.PROYECTOS_URL}/${id}`, proyecto);
   }
-  
+
   crearProyecto(proyecto) {
-    return this.http.post(`${environment.API_URL}/proyecto`, proyecto);
+    return this.http.post(this.PROYECTOS_URL, proyecto);
   }
+
   guardarLocalStorage(proyecto) {
     localStorage.setItem('proyecto', JSON.stringify(proyecto));
   }
+
   borrarLocalStorage() {
     localStorage.setItem('proyecto', ' ');
   }
