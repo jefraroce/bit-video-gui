@@ -34,7 +34,35 @@
     </div>
   </div>
 
+  <h3>Proyectos Recientes</h3>
+
+  <hr/>
+
+  <div class="row mb-3">
+    <div *ngIf="estaCargando; else listaDeProyectos" class="d-flex justify-content-center w-100">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Cargando...</span>
+      </div>
+    </div>
+    <ng-template #listaDeProyectos>
+      <div *ngFor="let proyecto of proyectos" class="col-12 col-md-4 mb-3">
+        <div class="card" style="width: 18rem;">
+          <figure class="portada">
+            <img [src]="proyecto.portada" class="card-img-top" alt="poster">
+          </figure>
+          <div class="card-body">
+            <h5 class="card-title">{{ proyecto.nombreProyecto }}</h5>
+            <p class="card-text">{{ proyecto.descripcionProyecto }}</p>
+            <a class="btn btn-primary" [routerLink]="['/proyectos', proyecto._id]">Saber más</a>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
   <h3>Proyectos Populares</h3>
+
+  <hr/>
 
   <div class="row mb-3">
     <div *ngIf="estaCargando; else listaDeProyectos" class="d-flex justify-content-center w-100">
