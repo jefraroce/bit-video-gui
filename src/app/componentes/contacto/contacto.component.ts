@@ -26,14 +26,19 @@ export class ContactoComponent implements OnInit {
   }
 
   enviarMensaje(mensaje) {
-    this.mensajesService.crearMensaje(mensaje).subscribe(
-      (respuesta) => {
-        this.formularioMensaje.reset();
-        swal('Gracias', 'Tu mensaje ha sido enviado', 'success');
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+    if ( this.formularioMensaje.valid ) {
+
+      this.mensajesService.crearMensaje(mensaje).subscribe(
+        (respuesta) => {
+          this.formularioMensaje.reset();
+          swal('Gracias', 'Tu mensaje ha sido enviado', 'success');
+        },
+        (error) => {
+          swal('Tu mensaje no pudo ser enviado', '', 'error');
+        }
+      );
+    } else {
+      swal('Faltan datos', '', 'warning');
+    }
   }
 }
