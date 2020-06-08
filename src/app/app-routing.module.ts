@@ -5,6 +5,7 @@ import { InicioDeSesionComponent } from './componentes/inicio-de-sesion/inicio-d
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { AutenticacionGuard } from './guardian/autenticacion.guard';
 import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
+import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
 import { DonarComponent } from './componentes/donar/donar.component';
 import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracias-por-donar.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
@@ -40,6 +41,10 @@ const routes: Routes = [
       {
         path: 'proyectos',
         component: ListaProyectosComponent
+      },
+      {
+        path: 'nosotros',
+        component: NosotrosComponent
       },
       {
         path: 'proyectos/:id',

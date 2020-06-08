@@ -15,6 +15,7 @@ import { CompartidoModule } from './compartido/compartido.module';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { UrlSeguraPipe } from './utilidades/url-segura.pipe';
 import { ListaProyectosComponent } from './componentes/lista-proyectos/lista-proyectos.component';
+import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
     UrlSeguraPipe,
     InicioComponent,
     ListaProyectosComponent,
+    NosotrosComponent,
     ContactoComponent
   ],
   imports: [
