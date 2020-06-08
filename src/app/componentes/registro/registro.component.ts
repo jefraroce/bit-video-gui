@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuariosService } from '../../servicios/usuarios.service';
+import { Router } from '@angular/router';
+const swal = require('sweetalert');
 
 @Component({
   selector: 'app-registro',
@@ -15,36 +17,58 @@ export class RegistroComponent implements OnInit {
   formularioRegistro: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private registroService: UsuariosService
+    private registroService: UsuariosService,
+    private router: Router
   ) {
     this.formularioRegistro = this.formBuilder.group({
       nombreUsuario: ['', Validators.required],
       avatar: ['', Validators.required],
-      correoUsuario: ['', Validators.required],
-      contrasena: ['', Validators.required],
+      correoUsuario: [
+        '', [
+          Validators.required,
+          Validators.email
+        ]
+      ],
+      contrasena: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6)
+        ]
+      ],
     });
     this.avatarFile = '../../../assets/images/avatar-default-icon.png';
   }
 
   ngOnInit(): void {}
-  crearUsuario(datos) {
-    console.log('crear usuario 1');
-    const formData = new FormData();
-    formData.append('nombre', datos.nombreUsuario);
-    formData.append('correoElectronico', datos.correoUsuario);
-    formData.append('contrasena', datos.contrasena);
-    formData.append('avatar', this.avatarCargado);
-    console.log(formData);
-    this.registroService.registrarUsuario(formData).subscribe(
-      (usuario) => {
-        alert('usuario creado con exito');
-      },
-      (msg) => {
-        alert('Falla en creacion de usuario');
-      }
-    );
 
-    console.log('crear usuario');
+  crearUsuario(datos) {
+    if (this.formularioRegistro.valid) {
+      const formData = new FormData();
+      formData.append('nombre', datos.nombreUsuario);
+      formData.append('correoElectronico', datos.correoUsuario);
+      formData.append('contrasena', datos.contrasena);
+      formData.append('avatar', this.avatarCargado);
+      this.registroService.registrarUsuario(formData).subscribe(
+        (usuario) => {
+          swal('Genial', 'Muchas gracias por registrarte', 'success');
+          setTimeout(() => {
+            this.router.navigate(['/usuario/inicio-de-sesion']);
+          }, 3000);
+        },
+        (error) => {
+          if (error.error.errors.correoElectronico && error.error.errors.correoElectronico.kind === 'unique') {
+            swal('Error', 'Yá existe un usuario registrado con este correo electrónico.', 'error');
+          } else {
+            swal('Error', 'Ocurrio un error al intentar crear el usuario.', 'error');
+          }
+        }
+      );
+    } else if (this.formularioRegistro.controls['contrasena'].value.length < 6) {
+      swal('Advertencia', 'La contraseña debe tener al menos 6 carácteres.', 'warning');
+    } else {
+      swal('Advertencia', 'Por favor revisa que todos tus datos esten bien. Todos los campos son obligatorios.', 'warning');
+    }
   }
   onFileSelected(event) {
     if (event.target.files && event.target.files[0]) {
