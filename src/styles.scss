@@ -3,18 +3,24 @@ $theme-colors: (
   "primary": #528078
 );
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Oswald', Helvetica, sans-serif;
 }
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-.bg-primary a.btn.btn-link {
+.bg-primary a.btn.btn-link, .bg-primary button.btn.btn-link {
   color: white;
   text-decoration: none;
 }
 
-.bg-primary a.btn.btn-link:hover {
+.bg-primary a.btn.btn-link:hover, .bg-primary button.btn.btn-link:hover {
   color: lightgray;
 }
 

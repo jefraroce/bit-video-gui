@@ -1,23 +1,13 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 
-import { ViewCell, Cell, DefaultEditor, Editor } from 'ng2-smart-table';
-
 import { Router } from '@angular/router';
 
 @Component({
-  template: `
-  
-	<tbody>
-    <tr>
-		<td><button (click)="mostrarProyecto()" class="btn btn-primary" >Ver Proyecto</button></td>
-		<td><button (click)="mostrarPlanes()" class="btn btn-primary">Ver Planes</button></td>
-    </tr>
-    
-  </tbody>
-  
-    
-  `,
+  template: `<div>
+    <button (click)="mostrarProyecto()" class="btn btn-primary" >Ver Proyecto</button>
+		<button (click)="mostrarPlanes()" class="btn btn-primary">Ver Planes</button>
+  </div>`,
 })
 export class ButtonRenderComponent implements OnInit {
 
@@ -36,7 +26,7 @@ export class ButtonRenderComponent implements OnInit {
   }
   
   mostrarPlanes() {
-    this.router.navigate(['/planes', this.value]);
+    this.router.navigate(['/admin/planes', this.value]);
   }
 
 

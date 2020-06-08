@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
-import { PlanesComponent } from './componentes/planes/planes.component';
-import { CrearPlanComponent } from './componentes/crear-plan/crear-plan.component';
-import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
-import { CrearProyectoComponent } from './componentes/crear-proyecto/crear-proyecto.component';
 import { InicioDeSesionComponent } from './componentes/inicio-de-sesion/inicio-de-sesion.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { AutenticacionGuard } from './guardian/autenticacion.guard';
@@ -12,6 +8,7 @@ import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
 import { DonarComponent } from './componentes/donar/donar.component';
 import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracias-por-donar.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
+import { ListaProyectosComponent } from './componentes/lista-proyectos/lista-proyectos.component';
 
 const routes: Routes = [
   {
@@ -28,30 +25,16 @@ const routes: Routes = [
         component: InicioComponent,
       },
       {
-        path: 'planes/:id',
-        component: PlanesComponent,
-      },
-      {
-        path: 'planes/crear',
-        canActivate: [AutenticacionGuard],
-        component: CrearPlanComponent,
-      },
-      {
-        path: 'proyectos',
-        component: ProyectosComponent,
-      },
-      {
-        path: 'proyectos/crear',
-        canActivate: [AutenticacionGuard],
-        component: CrearProyectoComponent,
-      },
-      {
         path: 'usuario/inicio-de-sesion',
         component: InicioDeSesionComponent,
       },
       {
         path: 'usuario/registro',
         component: RegistroComponent,
+      },
+      {
+        path: 'proyectos',
+        component: ListaProyectosComponent
       },
       {
         path: 'proyectos/:id',
@@ -64,6 +47,11 @@ const routes: Routes = [
       {
         path:'gracias-x-donar/:id',
         component: GraciasPorDonarComponent
+      },
+      {
+        path: 'admin',
+        canActivate: [AutenticacionGuard],
+        loadChildren: () => import('./componentes/admin/admin.module').then(m => m.AdminModule)
       },
       {
         path: '**',

@@ -1,26 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectosService } from 'src/app/servicios/proyectos.service';
-import { UsuariosService } from 'src/app/servicios/usuarios.service';
 const swal = require('sweetalert');
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.scss']
+  selector: 'app-lista-proyectos',
+  templateUrl: './lista-proyectos.component.html',
+  styleUrls: ['./lista-proyectos.component.scss']
 })
-export class InicioComponent implements OnInit {
-  usuario = null;
+export class ListaProyectosComponent implements OnInit {
   proyectos: Array<any>;
   estaCargando = false;
+  busqueda: String;
 
-  constructor(
-    private proyectosService: ProyectosService,
-    private usuariosService: UsuariosService
-    ) {
-    this.usuariosService.autenticacion$.subscribe((usuarioAutenticado) => {
-      this.usuario = usuarioAutenticado;
-    });
-  }
+  constructor(private proyectosService: ProyectosService) { }
 
   ngOnInit(): void {
     this.cargarProyectos();
@@ -28,7 +20,10 @@ export class InicioComponent implements OnInit {
 
   cargarProyectos() {
     this.estaCargando = true;
-    this.proyectosService.traerProyectos()
+
+    const filtros = typeof this.busqueda === 'string' && this.busqueda.length > 0 ? { nombreProyecto: this.busqueda } : {};
+
+    this.proyectosService.traerProyectos(filtros)
       .subscribe((proyectosCargados: Array<any>) => {
         this.proyectos = proyectosCargados;
         this.estaCargando = false;
@@ -39,5 +34,4 @@ export class InicioComponent implements OnInit {
         this.estaCargando = false;
       })
   }
-
 }

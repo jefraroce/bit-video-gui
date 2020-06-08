@@ -22,14 +22,14 @@ export class PlanesService {
   }
 
   eliminarPlan(id) {
-    return this.http.delete(`${environment.API_URL}/planes/${id}`);
+    return this.http.delete(`${environment.API_URL}/plan/${id}`);
   }
   
   editarPlan(id, plan) {
-    return this.http.put(`${environment.API_URL}/planes/${id}`, plan);
+    return this.http.put(`${environment.API_URL}/plan/${id}`, plan);
   }
   
   crearPlan(plan) {
-    return this.http.post(`${environment.API_URL}/planes`, plan);
+    return this.http.post(`${environment.API_URL}/plan`, plan);
   }
 }

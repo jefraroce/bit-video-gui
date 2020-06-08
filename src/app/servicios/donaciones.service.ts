@@ -19,6 +19,9 @@ export class DonacionesService {
   traerDonacionPorId(IdDonacion) {
     return this.http.get(`${environment.API_URL}/donacion/${IdDonacion}`, this.opciones);
   }
+  traerDonaciones(parametros = {}) {
+    return this.http.get(`${environment.API_URL}/donacion`,{params: parametros});
+  }
 
   eliminarDonacion(IdDonacion) {
     return this.http.delete(`${environment.API_URL}/donacion/${IdDonacion}`);

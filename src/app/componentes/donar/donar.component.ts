@@ -5,8 +5,8 @@ import { PlanesService } from '../../servicios/planes.service';
 import { ProyectoService } from '../../servicios/proyecto.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsuariosService } from '../../servicios/usuarios.service';
 const swal = require('sweetalert');
-
 
 @Component({
   selector: 'app-donar',
@@ -14,6 +14,7 @@ const swal = require('sweetalert');
   styleUrls: ['./donar.component.scss']
 })
 export class DonarComponent implements OnInit {
+  usuario;
   proyecto: any = {
     nombreProyecto: null,
     descripcionProyecto: null,
@@ -31,6 +32,7 @@ export class DonarComponent implements OnInit {
     private planesService: PlanesService,
     private formBuilder: FormBuilder,
     private router: Router,
+    private usuariosService: UsuariosService
 
   ) {
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -44,10 +46,17 @@ export class DonarComponent implements OnInit {
       correoDonante: ['', Validators.required],
       telefonoDonante: ['', Validators.required],
     });
+
+    this.usuariosService.autenticacion$.subscribe((usuarioAutenticado) => {
+      this.usuario = usuarioAutenticado;
+      if (this.usuario) {
+        this.formularioRegistroDonacion.controls['nombreDonante'].setValue(this.usuario.nombre);
+      }
+    })
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
+
   cargarInformacion(idProyecto: String) {
     this.proyectoService.traerProyectoPorId(idProyecto)
       .subscribe((proyecto) => {

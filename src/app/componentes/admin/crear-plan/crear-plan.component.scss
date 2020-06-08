@@ -1,0 +1,21 @@
+.titulo,
+h1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: gray;
+}
+
+.formulario {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario form, .formulario h1{
+    width: 100%;
+}
+ 

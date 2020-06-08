@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PlanesService } from '../../servicios/planes.service';
+import { PlanesService } from '../../../servicios/planes.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-planes',
@@ -11,17 +12,14 @@ export class PlanesComponent implements OnInit {
   planes: [];
   tableSettings = {
     columns: {
-      proyectoId: {
-        title: 'proyectoId'
-      },
       descripcionPlan: {
-        title: 'descripcionPlan'
+        title: 'Descripcion'
       },
       nombrePlan: {
-        title: 'nombrePlan'
+        title: 'Nombre'
       },
       valor: {
-        title: 'valor'
+        title: 'Valor'
       }
     },
 
@@ -36,7 +34,7 @@ export class PlanesComponent implements OnInit {
     }
   };
 
-  constructor(private activatedRoute: ActivatedRoute, private planesService: PlanesService) {
+  constructor(private activatedRoute: ActivatedRoute, private planesService: PlanesService,private router: Router) {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.cargarPlanes(params.id);
     });
@@ -63,7 +61,9 @@ export class PlanesComponent implements OnInit {
     };
     this.planesService.editarPlan(event.newData._id, planEditado)
       .subscribe((resultado) => {
-        this.cargarPlanes(event.newData.proyectoId);
+        this.activatedRoute.params.subscribe((params: Params) => {
+			this.cargarPlanes(params.id);
+		});  
       },
         (error) => {
           console.error('Error editando plan ', error);
@@ -73,11 +73,23 @@ export class PlanesComponent implements OnInit {
   borrarPlan(event) {
     this.planesService.eliminarPlan(event.data._id)
       .subscribe((resultado) => {
-        this.cargarPlanes(event.data._id);
+		  
+		this.activatedRoute.params.subscribe((params: Params) => {
+			this.cargarPlanes(params.id);
+		});  
+		  
+        
       },
         (error) => {
           console.error('Error eliminando plan ', error);
         });
+  }
+  
+  mostrarCrearPlan() {
+	  this.activatedRoute.params.subscribe((params: Params) => {
+		this.router.navigate(['/admin/planes/crear', params.id]);
+    });
+    
   }
 
 }
