@@ -7,21 +7,21 @@ const jQuery = require('jquery');
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit, OnDestroy {
-  animacion;
+  animacion: NodeJS.Timeout;
 
   constructor() { }
 
   ngOnInit(): void {
     this.animacion = setTimeout(() => this.mostrarPublicidad(), 10000);
-    this.animacion = setInterval(() => this.mostrarPublicidad(), 60000);
+    this.animacion = setInterval(() => this.mostrarPublicidad(), 180000);
   }
 
   ngOnDestroy(): void {
     clearInterval(this.animacion);
   }
 
-  createToast(titulo: string, mensaje: string, delay = 12000) {
-    const toastContainer = document.getElementById('toast-list')
+  createToast(titulo: string, mensaje: string, delay: number = 12000) {
+    const toastContainer = document.getElementById('toast-list');
     if (toastContainer) {
       const icon = '<img src="assets/images/logo.svg" style="height: 24px; width: auto;" />';
       const id = Math.floor(Math.random() * 10000);
@@ -38,12 +38,12 @@ export class LayoutComponent implements OnInit, OnDestroy {
           <div class="toast-body">
             ${mensaje}
           </div>
-        </div>`
+        </div>`;
 
-      jQuery(`#toast-${id}`).toast('show')
+      jQuery(`#toast-${id}`).toast('show');
       setTimeout(() => {
-        jQuery(`#toast-${id}`).remove()
-      }, delay)
+        jQuery(`#toast-${id}`).remove();
+      }, delay);
     }
   }
 
