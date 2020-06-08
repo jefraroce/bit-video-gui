@@ -6,6 +6,7 @@ import { ProyectoService } from '../../servicios/proyecto.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuariosService } from '../../servicios/usuarios.service';
+const swal = require('sweetalert');
 
 @Component({
   selector: 'app-donar',
@@ -81,7 +82,7 @@ export class DonarComponent implements OnInit {
       this.donacionesService.crearDonacion(donacion).subscribe(
         (donacion1:any) => {
           this.donacion = donacion1;
-          alert('Donacion creada con exito');
+          swal('Exito', 'Donación creada con exito', 'success');
           this.router.navigate(['/gracias-x-donar/',donacion1._id]);
 
         },
