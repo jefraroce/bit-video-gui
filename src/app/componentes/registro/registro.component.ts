@@ -64,6 +64,10 @@ export class RegistroComponent implements OnInit {
           }
         }
       );
+    } else if (this.formularioRegistro.controls['nombreUsuario'].hasError('required')) {
+      swal('Advertencia', 'Debe ingresar su nombre.', 'warning');
+    } else if (this.formularioRegistro.controls['correoUsuario'].hasError('required')) {
+      swal('Advertencia', 'Debe ingresar su correo electrónico.', 'warning');
     } else if (this.formularioRegistro.controls['contrasena'].value.length < 6) {
       swal('Advertencia', 'La contraseña debe tener al menos 6 carácteres.', 'warning');
     } else {
