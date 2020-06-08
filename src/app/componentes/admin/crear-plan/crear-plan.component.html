@@ -1,0 +1,13 @@
+<div class="mx-auto text-center d-flex flex-column justify-content-center formulario" align="center">
+	<form #crearPlan = "ngForm" (ngSubmit) = "onClickSubmit(crearPlan.value)" >
+		
+		<input class="form-control" type = "text" name = "descripcionPlan" placeholder = "Descripcion" ngModel>
+		<br/>
+		<input class="form-control" type = "text" name = "nombrePlan" placeholder = "Nombre" ngModel>
+		<br/>
+		<input class="form-control" type = "text" name = "valor" placeholder = "Valor" ngModel>
+		<br/>
+		<input class="btn btn-primary" type = "submit" value = "Crear Plan">
+	</form>
+
+</div>   

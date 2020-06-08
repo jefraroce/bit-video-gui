@@ -1,0 +1,20 @@
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+}
+
+.nombre-usuario {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 0.4rem;
+}
+
+.nombre-usuario:hover {
+  color: lightgray;
+  cursor: pointer;
+}

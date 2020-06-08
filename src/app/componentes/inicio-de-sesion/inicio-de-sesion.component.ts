@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuariosService } from '../../servicios/usuarios.service';
 import { Router } from '@angular/router';
+const swal = require('sweetalert');
 
 @Component({
   selector: 'app-inicio-de-sesion',
@@ -24,17 +25,22 @@ export class InicioDeSesionComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
   iniciarSesion(datos) {
-    this.usuariosService.iniciarSesion(datos).subscribe(
-      (usuario) => {
-        this.usuario = usuario;
-        console.log(usuario);
-        this.usuariosService.guardarLocalStorage(usuario);
-        //this.router.navigate(['/reproductor']);
-      },
-      (respuesta) => {
-        alert('no se encontro el usuario');
-      }
-    );
+    if (this.formularioInicioDeSesion.valid) {
+      this.usuariosService.iniciarSesion(datos).subscribe(
+        (usuario) => {
+          this.usuario = usuario;
+          this.usuariosService.guardarLocalStorage(usuario);
+          this.router.navigate(['/admin/proyectos']);
+        },
+        (error) => {
+          swal('Error', 'El correo electrónico o contraseña no coinciden.', 'error');
+          console.error('Error: ', error);
+        }
+      );
+    } else {
+      swal('Error', 'Por favor ingrese sus credenciales.', 'error');
+    }
   }
 }

@@ -5,30 +5,29 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
-import { PlanesComponent } from './componentes/planes/planes.component';
-import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
-import { CrearProyectoComponent } from './componentes/crear-proyecto/crear-proyecto.component';
-import { CrearPlanComponent } from './componentes/crear-plan/crear-plan.component';
 import { InicioDeSesionComponent } from './componentes/inicio-de-sesion/inicio-de-sesion.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
 import { DonarComponent } from './componentes/donar/donar.component';
 import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracias-por-donar.component';
+import { CompartidoModule } from './compartido/compartido.module';
+import { InicioComponent } from './componentes/inicio/inicio.component';
+import { UrlSeguraPipe } from './utilidades/url-segura.pipe';
+import { ListaProyectosComponent } from './componentes/lista-proyectos/lista-proyectos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    PlanesComponent,
-    ProyectosComponent,
-    CrearProyectoComponent,
-    CrearPlanComponent,
     InicioDeSesionComponent,
     RegistroComponent,
     ProyectoComponent,
     DonarComponent,
-    GraciasPorDonarComponent
+    GraciasPorDonarComponent,
+    UrlSeguraPipe,
+    InicioComponent,
+    ListaProyectosComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +36,7 @@ import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracia
     ReactiveFormsModule,
     HttpClientModule,
     Ng2SmartTableModule,
+    CompartidoModule
   ],
   providers: [],
   bootstrap: [AppComponent],
