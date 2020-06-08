@@ -15,6 +15,7 @@ import { CompartidoModule } from './compartido/compartido.module';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { UrlSeguraPipe } from './utilidades/url-segura.pipe';
 import { ListaProyectosComponent } from './componentes/lista-proyectos/lista-proyectos.component';
+import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ListaProyectosComponent } from './componentes/lista-proyectos/lista-pro
     GraciasPorDonarComponent,
     UrlSeguraPipe,
     InicioComponent,
-    ListaProyectosComponent
+    ListaProyectosComponent,
+    NosotrosComponent
   ],
   imports: [
     BrowserModule,

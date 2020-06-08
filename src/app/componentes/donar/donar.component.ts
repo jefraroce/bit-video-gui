@@ -15,14 +15,16 @@ const swal = require('sweetalert');
 })
 export class DonarComponent implements OnInit {
   usuario;
-  proyecto: any = {
+    proyecto: any = {
     nombreProyecto: null,
     descripcionProyecto: null,
     portada: null,
     enlace: null,
   };
   planes: any;
-  donacion: any;
+  donacion: any = {
+    valor: 0
+  };
   formularioRegistroDonacion: FormGroup;
 
   constructor(
@@ -45,6 +47,7 @@ export class DonarComponent implements OnInit {
       nombreDonante: ['', Validators.required],
       correoDonante: ['', Validators.required],
       telefonoDonante: ['', Validators.required],
+      valor: [null, Validators.required]
     });
 
     this.usuariosService.autenticacion$.subscribe((usuarioAutenticado) => {
@@ -93,7 +96,19 @@ export class DonarComponent implements OnInit {
         }
       );
     } else {
-      alert('Por favor revisa que todos los campos este completos')
+      swal('Error', 'Revisa los campos a llenar', 'warning');
+    }
+  }
+  seleccionarPlan(){
+    console.log(this.formularioRegistroDonacion.controls["planId"]);
+    const planId =  this.formularioRegistroDonacion.controls["planId"].value
+    const planesSeleccionados = this.planes.filter((plan) => plan._id === planId)
+    console.log("Este es el plan seleccionado", planesSeleccionados);
+    if (planesSeleccionados.length > 0){
+      this.formularioRegistroDonacion.controls['valor'].setValue(parseFloat(planesSeleccionados[0].valor));
+      // this.donacion.valor = parseFloat(planesSeleccionados[0].valor)
+    } else {
+      this.formularioRegistroDonacion.controls['valor'].setValue("");
     }
   }
 }
