@@ -8,9 +8,10 @@ import { ProyectosComponent } from './proyectos/proyectos.component';
 import { CrearProyectoComponent } from './crear-proyecto/crear-proyecto.component';
 import { PlanesComponent } from './planes/planes.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { MisDonacionesComponent } from './mis-donaciones/mis-donaciones.component';
 
 @NgModule({
-  declarations: [CrearPlanComponent, ProyectosComponent, CrearProyectoComponent, PlanesComponent],
+  declarations: [CrearPlanComponent, ProyectosComponent, CrearProyectoComponent, PlanesComponent, MisDonacionesComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

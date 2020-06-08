@@ -14,7 +14,7 @@ import { PlanesService } from '../../servicios/planes.service';
 export class GraciasPorDonarComponent implements OnInit {
   donacion : any;
   proyecto: any;
-  planes: any;
+  plan: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -24,7 +24,7 @@ export class GraciasPorDonarComponent implements OnInit {
   ) { 
     this.activatedRoute.params.subscribe((params: Params) => {
       this.cargarDonacion(params.id);
-      this.cargarDonacion(this.donacion);
+      console.log(this.donacion)
       
     });
     
@@ -35,28 +35,29 @@ export class GraciasPorDonarComponent implements OnInit {
   }
   cargarDonacion(idDonacion: String) {
     this.donacionesService.traerDonacionPorId(idDonacion)
-      .subscribe((donacion) => {
+      .subscribe((donacion: any) => {
         this.donacion = donacion;
+        this.cargarProyecto(this.donacion);
       },
       (error) => {
         console.error('Error consultado donacion: ', error);
       });
   }
   cargarProyecto(donacion1) {
-    this.proyectoService.traerProyectoPorId({_id: donacion1.proyectoId})
-      .subscribe((proyecto: []) => {
+    this.proyectoService.traerProyectoPorId(donacion1.proyectoId)
+      .subscribe((proyecto: any) => {
         this.proyecto = proyecto;
-        console.log(proyecto)
+        this.cargarPlanes(this.donacion.planId);
       },
       (error) => {
         console.error('Error consultado proyecto: ', error);
       }); 
   }
-  cargarPlanes(idProyecto: String) {
-    this.planesService.traerPlanes({proyectoId: idProyecto})
-      .subscribe((planes: []) => {
-        this.planes = planes;
-        console.log(planes)
+  cargarPlanes(idPlan: String) {
+    this.planesService.traerPlanPorId(idPlan)
+      .subscribe((plan: []) => {
+        this.plan = plan;
+        console.log(plan)
       },
       (error) => {
         console.error('Error consultado planes: ', error);
