@@ -1,0 +1,27 @@
+<h1>Contactanos</h1>
+<div class="titulo row">
+    <div class="col-12">
+        <form class="formulario" [formGroup]="formularioMensaje" (ngSubmit)="enviarMensaje(formularioMensaje.value)">
+            <div class="col-12">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text material-icons">face</span>
+                    </div>
+                    <input formControlName="nombre" type="text" class="form-control" id="text" placeholder="Nombre">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text material-icons">email</span>
+                    </div>
+                    <input formControlName="correoMensaje" type="email" class="form-control" id="email"
+                        placeholder="Correo">
+                </div>
+                <div class="form-group">
+                    <textarea formControlName="mensaje" class="form-control" id="exampleFormControlTextarea1" rows="3"
+                        placeholder="¿En que te podemos ayudar?"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>

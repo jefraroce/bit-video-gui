@@ -10,6 +10,7 @@ import { DonarComponent } from './componentes/donar/donar.component';
 import { GraciasPorDonarComponent } from './componentes/gracias-por-donar/gracias-por-donar.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { ListaProyectosComponent } from './componentes/lista-proyectos/lista-proyectos.component';
+import { ContactoComponent } from './componentes/contacto/contacto.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: 'inicio',
         component: InicioComponent,
+      },
+      {
+        path: 'contacto',
+        component: ContactoComponent
       },
       {
         path: 'usuario/inicio-de-sesion',
@@ -46,11 +51,11 @@ const routes: Routes = [
         component: ProyectoComponent
       },
       {
-        path:'proyectos/:id/donar',
+        path: 'proyectos/:id/donar',
         component: DonarComponent
       },
       {
-        path:'gracias-x-donar/:id',
+        path: 'gracias-x-donar/:id',
         component: GraciasPorDonarComponent
       },
       {
