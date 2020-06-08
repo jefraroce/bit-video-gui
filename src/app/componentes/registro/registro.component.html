@@ -1,31 +1,35 @@
-<div class="row col-12 d-flex justify-content-center">
+<div class="mx-auto text-center d-flex flex-column justify-content-center formulario">
     <h1>Registro de Usuario</h1>
-</div>
-<div class="row">
-    <div class="col-2"></div>
-    <div class="col-2">
-        <img class="avatar" src="{{ avatarFile }}" alt="" />
-    </div>
-    <div class="col-4">
-        <form [formGroup]="formularioRegistro" (ngSubmit)="crearUsuario(formularioRegistro.value)">
-            <div class="form-group">
-                <input formControlName="nombreUsuario" type="text" class="form-control" id="nombre" placeholder="Nombre" />
+
+    <img class="avatar" src="{{ avatarFile }}" alt="" />
+
+    <form [formGroup]="formularioRegistro" (ngSubmit)="crearUsuario(formularioRegistro.value)">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text material-icons">account_circle</span>
             </div>
-            <div class="form-group">
-                <input formControlName="correoUsuario" type="email" class="form-control" id="email" placeholder="Correo electronico" />
+            <input formControlName="nombreUsuario" type="email" class="form-control" id="email" placeholder="Nombre" />
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text material-icons">email</span>
             </div>
-            <div class="form-group">
-                <input formControlName="contrasena" type="password" class="form-control" id="pass" placeholder="Contraseña" />
+            <input formControlName="correoUsuario" type="email" class="form-control" id="email" placeholder="Correo Electrónico" />
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text material-icons">vpn_key</span>
             </div>
-            <div class="form-group">
-                <input formControlName="avatar" type="file" class="form-control" id="avatar" (change)="onFileSelected($event)" />
+            <input formControlName="contrasena" type="password" class="form-control" id="pass" placeholder="Contraseña" />
+        </div>
+        <div class="form-group">
+            <input formControlName="avatar" type="file" class="form-control" id="avatar" (change)="onFileSelected($event)" />
+        </div>
+        <div class="row">
+            <div class="boton col-12">
+                <button type="submit" class="btn btn-primary">Registrarse</button>
             </div>
-            <div class="row">
-                <div class="boton col-12">
-                    <button type="submit" class="btn btn-primary">Registrarse</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="col-4"></div>
+        </div>
+    </form>
 </div>
