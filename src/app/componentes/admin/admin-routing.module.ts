@@ -4,6 +4,7 @@ import { CrearPlanComponent } from './crear-plan/crear-plan.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { CrearProyectoComponent } from './crear-proyecto/crear-proyecto.component';
 import { PlanesComponent } from './planes/planes.component';
+import { MisDonacionesComponent } from './mis-donaciones/mis-donaciones.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'proyectos/crear',
     component: CrearProyectoComponent,
+  },
+  {
+    path: 'mi-recaudacion',
+    component: MisDonacionesComponent,
   },
 ];
 
