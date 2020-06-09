@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectosService } from '../../../servicios/proyectos.service';
 import { UsuariosService } from '../../../servicios/usuarios.service';
+import { Router } from '@angular/router';
 const swal = require('sweetalert');
 
 @Component({
@@ -11,7 +12,8 @@ const swal = require('sweetalert');
 export class CrearProyectoComponent implements OnInit {
   constructor(
     private proyectosService: ProyectosService,
-    private usuariosService: UsuariosService
+    private usuariosService: UsuariosService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -25,10 +27,10 @@ export class CrearProyectoComponent implements OnInit {
       enlace: data.enlace,
     };
     this.proyectosService.crearProyecto(proyectoNuevo).subscribe(
-      (resultado) => {
+      (resultado: any) => {
         swal('Felicidades', 'El proyecto se creo con exito', 'success');
         setTimeout(() => {
-          this.router.navigate(['/proyectos',resultado._id]);
+          this.router.navigate(['/proyectos', resultado._id]);
         }, 3000);
       },
       (error) => {

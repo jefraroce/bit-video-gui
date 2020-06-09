@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanesService } from '../../../servicios/planes.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 const swal = require('sweetalert');
 
 @Component({
@@ -11,7 +12,8 @@ const swal = require('sweetalert');
 export class CrearPlanComponent implements OnInit {
   constructor(
     private planesService: PlanesService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -26,11 +28,13 @@ export class CrearPlanComponent implements OnInit {
       };
 
       this.planesService.crearPlan(planNuevo).subscribe(
-        (resultado) => {
+        (resultado: any) => {
           swal('Felicidades', 'El proyecto se creo con exito', 'success');
-          setTimeout(() => {
-            this.router.navigate(['/proyectos',resultado._id]);
-          }, 3000);
+          if (resultado._id) {
+            setTimeout(() => {
+              this.router.navigate(['/proyectos', resultado._id]);
+            }, 3000);
+          }
         },
         (error) => {
           console.error('Error creando plan ', error);
