@@ -26,10 +26,14 @@ export class CrearProyectoComponent implements OnInit {
     };
     this.proyectosService.crearProyecto(proyectoNuevo).subscribe(
       (resultado) => {
-        swal('success', 'El proyecto se creo con exito');
+        swal('Felicidades', 'El proyecto se creo con exito', 'success');
+        setTimeout(() => {
+          this.router.navigate(['/proyectos',resultado._id]);
+        }, 3000);
       },
       (error) => {
         console.error('Error creando proyecto ', error);
+        swal('Error', 'Hubo un problema al crear el proyecto', 'error')
       }
     );
   }
