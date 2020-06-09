@@ -49,6 +49,7 @@ export class RegistroComponent implements OnInit {
       formData.append('correoElectronico', datos.correoUsuario);
       formData.append('contrasena', datos.contrasena);
       formData.append('avatar', this.avatarCargado);
+
       this.registroService.registrarUsuario(formData).subscribe(
         (usuario) => {
           swal('Genial', 'Muchas gracias por registrarte', 'success');

@@ -13,7 +13,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.animacion = setTimeout(() => this.mostrarPublicidad(), 10000);
-    this.animacion = setInterval(() => this.mostrarPublicidad(), 180000);
+    this.animacion = setInterval(() => this.mostrarPublicidad(), 240000);
   }
 
   ngOnDestroy(): void {
