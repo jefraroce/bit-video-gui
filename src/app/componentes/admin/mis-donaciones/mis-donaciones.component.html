@@ -1,22 +1,39 @@
-<div class="container my-4">
+<div class="container">
     <h2>Donaciones recibidas</h2>
-</div>
-<div class="container d-flex">
-    <div class="planes col-8">
-        <div *ngFor="let proyecto of proyectos" class="card  d-flex flex-row">
-            <div class="card-body col-8">
-                <h5 class="card-title">{{proyecto.nombreProyecto}}</h5>
-            </div>
-            <div *ngFor="let donacion of proyecto.donaciones" class="card-body col-4 d-flex align-items-center justify-content-center">
-                <h3 class="card-title">{{donacion.valor | currency}}</h3>
+
+    <div class="row">
+        <div class="col-12 col-md-8 order-1 order-md-0">
+            <div *ngFor="let proyecto of proyectos" class="card">
+                <div class="card-body">
+                    <h3 class="card-title d-flex justify-content-between">
+                        {{ proyecto.nombreProyecto }}
+                        <a [routerLink]="['/proyectos', proyecto._id]" class="btn btn-secondary">Ver Proyecto</a>
+                    </h3>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Gracias A</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let donacion of proyecto.donaciones">
+                                    <td>{{ donacion.nombreDonante }}</td>
+                                    <td class="text-right">{{ donacion.valor | currency }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class=" col-4 p-relative">
-        <div class="card text-white bg-primary mb-3 total" style="max-width: 18rem;">
-            <div class="card-header">Total</div>
-            <div class="card-body">
-                <h5 class="card-title"></h5>
+        <div class="col-12 col-md-4 order-0 order-md-1">
+            <div class="card text-white bg-primary total mb-3 mx-auto" style="max-width: 18rem;">
+                <div class="card-header">Total</div>
+                <div class="card-body">
+                    <h5 class="card-title text-right">{{ this.total | currency }}</h5>
+                </div>
             </div>
         </div>
     </div>

@@ -13,3 +13,19 @@
   height: 24px;
   width: auto;
 }
+
+#toast-list {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5555;
+}
+
+@media all and (max-width: 1557px) {
+  #toast-list {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    top: auto;
+  }
+}

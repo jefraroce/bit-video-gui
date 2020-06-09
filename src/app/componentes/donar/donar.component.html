@@ -16,7 +16,7 @@
     </div>
   </div>
   <form [formGroup]="formularioRegistroDonacion" (ngSubmit)="crearDonacion(formularioRegistroDonacion.value)">
-    <div class="d-block">
+    <div class="d-none">
       <label>ProyectoId</label>
       <input formControlName="proyectoId" type="text" class="form-control" id="inputProyecto" [value]="proyecto._id">
       <input formControlName="valor" type="text" class="form-control" [value]="donacion.valor">
