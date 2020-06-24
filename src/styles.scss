@@ -27,3 +27,8 @@ h1, h2, h3, h4, h5, h6 {
 .bg-primary a.btn.btn-link.active {
   border-bottom: 3px solid lightgreen;
 }
+
+.btn.btn-link {
+  display: flex;
+  align-items: center;
+}
